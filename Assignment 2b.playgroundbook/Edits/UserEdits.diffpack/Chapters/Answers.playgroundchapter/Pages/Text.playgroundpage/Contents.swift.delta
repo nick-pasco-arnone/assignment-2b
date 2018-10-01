@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>//created on oct 1
+//created by nick pasco-arnone
+//created for ICS20
+//this program calculates the height of an object
+
+import PlaygroundSupport
+import UIKit
+
+class ViewController : UIViewController {
+    
+
+
+let instructionLabel = UILabel()
+let secondsLabel = UILabel()
+let secondsTextField = UITextField()
+let calculateButton = UIButton()
+let heightLabel = UILabel()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+         
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.976470589637756, green: 0.850980401039124, blue: 0.549019634723663, alpha: 1.0)
+        self.view = view
+        
+        
+        instructionLabel.text = "calculate the height of an object "
+        view.addSubview(instructionLabel)
+        instructionLabel.translatesAutoresizingMaskIntoConstraints = false
+        instructionLabel.topAnchor.constraint(equalTo:view.topAnchor, constant: 20).isActive = true
+        instructionLabel.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 20).isActive = true
+        
+        
+        secondsLabel.text = "enter seconds"
+        view.addSubview(secondsLabel)
+        secondsLabel.translatesAutoresizingMaskIntoConstraints = false
+        secondsLabel.topAnchor.constraint(equalTo:instructionLabel.bottomAnchor, constant: 20).isActive = true
+        secondsLabel.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 20).isActive = true
+        
+        
+        secondsTextField.borderStyle = UITextBorderStyle.roundedRect
+        secondsTextField.placeholder = "in sec  "
+        view.addSubview(secondsTextField)
+        secondsTextField.translatesAutoresizingMaskIntoConstraints = false
+        secondsTextField.topAnchor.constraint(equalTo:secondsLabel.bottomAnchor, constant: 20).isActive = true
+        secondsTextField.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 20).isActive = true
+        
+        
+        
+        calculateButton.setTitle("click here for height ", for: .normal)
+        calculateButton.titleLabel?.textAlignment = .center
+        calculateButton.setTitleColor(.blue, for: .normal)
+        calculateButton.addTarget(self, action: #selector(calculatePrice), for: .touchUpInside)
+        view.addSubview(calculateButton)
+        calculateButton.translatesAutoresizingMaskIntoConstraints = false
+        calculateButton.topAnchor.constraint(equalTo:secondsTextField.bottomAnchor, constant: 20).isActive = true
+        
+        heightLabel.text = nil 
+        view.addSubview(heightLabel)
+        heightLabel.translatesAutoresizingMaskIntoConstraints = false
+        heightLabel.topAnchor.constraint(equalTo:calculateButton.bottomAnchor, constant: 20).isActive = true
+        heightLabel.leadingAnchor.constraint(equalTo:view.leadingAnchor, constant: 20).isActive = true
+        
+    }
+    @objc func calculatePrice() {
+        
+        let seconds : Float = Float(secondsTextField.text!)!
+        let gravity : Float = 9.81
+        let height = 100 - (1/2) * gravity * (seconds * seconds)
+
+
+        
+        heightLabel.text = "the height is: \(height)"
+        
+    }
+    
+     var perfersStatusBarHidden: Bool {
+        return true 
+    }
+    
+}
+
+PlaygroundPage.current.liveView = ViewController()
+</string>
+			<key>ModifiedRange</key>
+			<string>{145, 3232}</string>
+			<key>OriginalContent</key>
+			<string>show("What is your name?")
+
+let name = ask("Name")
+
+show("Hi " + name)
+
+</string>
+			<key>OriginalRange</key>
+			<string>{145, 72}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Answers.playgroundchapter/Pages/Text.playgroundpage/Contents.swift</string>
+</dict>
+</plist>
